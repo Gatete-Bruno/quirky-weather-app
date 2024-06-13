@@ -1,0 +1,20 @@
+/* App.css */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.App {
+  /* Common styles for both themes */
+}
+
+.App.light {
+  /* Styles for light theme */
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.App.dark {
+  /* Styles for dark theme */
+  background-color: #333333;
+  color: #ffffff;
+}
