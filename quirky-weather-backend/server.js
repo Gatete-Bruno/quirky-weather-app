@@ -1,30 +1,38 @@
-// server.js
 const express = require('express');
-const mongoose = require('mongoose');
-const bodyParser = require('body-parser');
+const axios = require('axios');
 const cors = require('cors');
-const preferencesRoutes = require('./routes/preferences');
-require('dotenv').config();
+require('dotenv').config();  // Load environment variables from .env file
 
 const app = express();
-const port = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5002;
 
-// Middleware
 app.use(cors());
-app.use(bodyParser.json());
+app.use(express.json());
 
-// MongoDB connection
-mongoose.connect(process.env.MONGODB_URI, {
-  useNewUrlParser: true, // useNewUrlParser is deprecated and has no effect in the new driver versions
-  useUnifiedTopology: true // useUnifiedTopology is deprecated and has no effect in the new driver versions
-})
-  .then(() => console.log('MongoDB connected'))
-  .catch(err => console.log('MongoDB connection error:', err));
+// Fetch weather data from external API
+const fetchWeatherData = async (latitude, longitude) => {
+    const API_KEY = process.env.OPENWEATHERMAP_API_KEY;  // Use API key from .env file
+    const weatherUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${API_KEY}&units=metric`;
+    const forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${API_KEY}&units=metric`;
 
-// Routes
-app.use('/api/preferences', preferencesRoutes);
+    const weatherResponse = await axios.get(weatherUrl);
+    const forecastResponse = await axios.get(forecastUrl);
 
-// Start server
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
+    return [weatherResponse.data, forecastResponse.data];
+};
+
+// Define the route to get weather data
+app.get('/weather', async (req, res) => {
+    const { latitude, longitude } = req.query;
+
+    try {
+        const [weatherData, forecastData] = await fetchWeatherData(latitude, longitude);
+        res.json({ weatherData, forecastData });
+    } catch (error) {
+        res.status(500).json({ error: 'Failed to fetch weather data' });
+    }
+});
+
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
 });
