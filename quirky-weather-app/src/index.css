@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Roboto+Condensed:wght@300;400;700&display=swap');
-body {
+/*body {
   margin: 0;
   font-family: 'Poppins', Arial, sans-serif !important;
   -webkit-font-smoothing: antialiased;
@@ -9,13 +9,106 @@ body {
   background-repeat: no-repeat;
   background-size: contain;
   min-height: 100vh;
-  background: linear-gradient(-35deg, #000428 0%, #17466b);
-   /*add a background image */
+  background: linear-gradient(-35deg, #000428 0%, #236298);
 
 
 
+}*/
 
+/*body {*/
+/*  margin: 0;*/
+/*  font-family: 'Poppins', Arial, sans-serif !important;*/
+/*  -webkit-font-smoothing: antialiased;*/
+/*  -moz-osx-font-smoothing: grayscale;*/
+/*  background-position: center;*/
+/*  background-repeat: no-repeat;*/
+/*  background-size: contain;*/
+/*  !*min-height: 100rex;*!*/
+/*  min-height: 100vh;*/
+/*  padding-bottom: 10vh;*/
+/*backdrop-filter: blur(5px);*/
+/*!*  backdrop-filter: invert(40%);*!*/
+/*  background-image: url('assets/rwnature.svg');*/
+/*  !*background: linear-gradient(-35deg, #000428 0%, #236298);*!*/
+/*  background-size: cover, cover;*/
+/*  background-position: top, bottom;*/
+/*  background-repeat: no-repeat;*/
+/*}*/
+
+
+body.default-theme {
+  margin: 0;
+  font-family: 'Poppins', Arial, sans-serif !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  min-height: 100vh;
+  background: linear-gradient(-35deg, #000428 0%, #236298);
 }
+
+body.nature-theme {
+  margin: 0;
+  font-family: 'Poppins', Arial, sans-serif !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  min-height: 100vh;
+  padding-bottom: 10vh;
+  backdrop-filter: blur(5px);
+  background-image: url('assets/rwanda-Kittl.svg');
+  background-size: cover, cover;
+  background-position: top, bottom;
+  background-repeat: no-repeat;
+}
+
+body.city-theme {
+  margin: 0;
+  font-family: 'Poppins', Arial, sans-serif !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  min-height: 100vh;
+  padding-bottom: 10vh;
+  backdrop-filter: blur(5px);
+  background-image: url('assets/stocklom.svg');
+  background-size: cover, cover;
+  background-position: top, bottom;
+  background-repeat: no-repeat;
+}
+
+.theme-switcher {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: #fff;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.theme-switcher button {
+  display: block;
+  margin-bottom: 10px;
+  padding: 5px 10px;
+  background: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.theme-switcher button:hover {
+  background: #0056b3;
+}
+
+
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',

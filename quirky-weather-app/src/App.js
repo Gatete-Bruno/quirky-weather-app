@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Box, Container, Grid, Typography, SvgIcon } from '@mui/material';
 import Search from './components/Search/Search';
 import WeeklyForecast from './components/WeeklyForecast/WeeklyForecast';
@@ -13,7 +13,9 @@ import ErrorBox from './components/Reusable/ErrorBox';
 import { ALL_DESCRIPTIONS } from './utilities/DateConstants';
 import { getTodayForecastWeather, getWeekForecastWeather } from './utilities/DataUtils';
 import Comparison from './components/Comparison/Comparison';
-import './App.css';
+import ThemeSwitcher from './utilities/themeswitcher';
+
+import './index.css';
 
 function App() {
     const [todayWeather, setTodayWeather] = useState(null);
@@ -25,6 +27,21 @@ function App() {
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(false);
     const [showRain, setShowRain] = useState(false);
+    const [theme, setTheme] = useState('default');
+    //const [streak, setStreak] = useState(0);
+
+    useEffect(() => {
+        document.body.className = `${theme}-theme`;
+    }, [theme]);
+
+    // useEffect(() => {
+    //     // Simulating a streak increment for demonstration
+    //     const timer = setTimeout(() => {
+    //         setStreak(streak + 1);
+    //     }, 2000);
+    //
+    //     return () => clearTimeout(timer);
+    // }, [streak]);
 
     const searchChangeHandler = async (enteredData) => {
         const [latitude, longitude] = enteredData.value.split(' ');
@@ -122,10 +139,13 @@ function App() {
             >
                 Welcome to the Quirky Weather App!
                 <br />
-                Search for the weather and forecast the beautiful clouds
-                <br />
-                😊 🌤️ 🌧️ 🌩️ 🌪️
+                {/*Search for the weather and forecast the beautiful clouds*/}
+                {/*<br />*/}
+
+                <br/>
+                now lets re-imagine the weather by changing the theme you like to have.
             </Typography>
+            <ThemeSwitcher setTheme={setTheme} /> {/* Add ThemeSwitcher component */}
         </Box>
     );
 
@@ -196,18 +216,19 @@ function App() {
             sx={{
                 marginTop: '2rem',
                 backdropFilter: 'blur(10px)',
-                maxWidth: { xs: '95%', sm: '80%', md: '1100px' },
+                maxWidth: { xs: '100%', sm: '100%', md: '1200px' },
                 width: '100%',
                 height: '100%',
                 margin: '0 auto',
-                padding: '2rem 0 5rem',
-                marginBottom: '1rem',
+                padding: '5rem 0 5rem',
+                marginBottom: '8rem',
                 borderRadius: {
                     xs: 'none',
                     sm: '0 0 1rem 1rem',
                 },
             }}
         >
+            {/*<StreakCounter streak={streak} />*/}
             <Grid container columnSpacing={2}>
                 <Grid item xs={12}>
                     <Box

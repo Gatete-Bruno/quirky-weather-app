@@ -11,6 +11,10 @@ const DailyForecastItem = (props) => {
         borderRadius: '8px',
         boxShadow:
           'rgba(0, 0, 0, 0.05) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px',
+          transition: 'box-shadow 0.5s ease-in-out',
+          '&:hover': {
+              boxShadow: '0 0 15px 5px rgba(128, 128, 128, 0.5)',
+          },
         textAlign: 'center',
         padding: '4px 0',
         width: '100%',
