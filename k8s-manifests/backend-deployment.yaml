@@ -23,7 +23,7 @@ spec:
     spec:
       containers:
       - name: backend
-        image: bruno74t/quirky-weather-backend:v1
+        image: bruno74t/quirky-weather-backend:v2
         imagePullPolicy: Always
         env:
           - name: MONGO_CONN_STR
