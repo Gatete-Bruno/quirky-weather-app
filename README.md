@@ -26,7 +26,9 @@ Kubernetes (K8s): Container orchestration tool for automating deployment, scalin
 The project is organized into three main directories:
 
 quirky-weather-app: Contains the frontend React application.
+
 quirky-weather-backend: Contains the backend Node.js application.
+
 k8s-manifests: Kubernetes manifest files for deploying the application on Kubernetes clusters.
 
 
