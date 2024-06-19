@@ -56,9 +56,12 @@ Run the frontend container on port 3000:
 
  docker run -d -p 3000:3000 --name quirky-weather-frontend bruno74t/quirky-weather-frontend:v3
 
+
 ### Access the APP locally via  
 
 http://localhost:3000/
+
+```
 
 ## Option 2: Deploy the Application on AWS via Elastic Kubernetes Service (EKS)
 
