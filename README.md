@@ -38,8 +38,12 @@ cd quirky-weather-app
 
 ## Option 1 (Run the Weather App Locally using Docker )
 
- docker pull bruno74t/quirky-weather-frontend:v3
- docker pull bruno74t/quirky-weather-backend:v3
+### Pull Docker Images
+
+```bash
+docker pull bruno74t/quirky-weather-frontend:v3
+docker pull bruno74t/quirky-weather-backend:v3
+
 
 Run the Backend Container
 Run the backend container on port 5000:
