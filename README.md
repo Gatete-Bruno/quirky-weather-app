@@ -1,6 +1,9 @@
 # Overview
 The Quirky Weather App is a React-based web application that allows users to check the current weather and weekly forecast for different locations. It utilizes the OpenWeatherMap API for fetching weather data and provides a user-friendly interface for viewing weather details.
 
+![Screenshot 2024-06-17 at 12 38 14](https://github.com/Gatete-Bruno/quirky-weather-app/assets/64279605/73a3f3ee-b599-471e-a20f-1370e3f3d3d1)
+=======
+
 ## Technologies Used
 
 ### Frontend
@@ -26,10 +29,6 @@ quirky-weather-app: Contains the frontend React application.
 quirky-weather-backend: Contains the backend Node.js application.
 k8s-manifests: Kubernetes manifest files for deploying the application on Kubernetes clusters.
 
-https://gatete.hashnode.dev/deploying-quirky-weather-app-on-aws
-![Screenshot 2024-06-17 at 12 38 14](https://github.com/Gatete-Bruno/quirky-weather-app/assets/64279605/73a3f3ee-b599-471e-a20f-1370e3f3d3d1)
-=======
-
 
 # Getting Started
 
@@ -37,7 +36,7 @@ git clone https://github.com/Gatete-Bruno/quirky-weather-app
 
 cd quirky-weather-app
 
-## Option 1 (Run the Wearher App Locally using Docker )
+## Option 1 (Run the Weather App Locally using Docker )
 
  docker pull bruno74t/quirky-weather-frontend:v3
  docker pull bruno74t/quirky-weather-backend:v3
