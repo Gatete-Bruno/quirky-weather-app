@@ -34,15 +34,6 @@ function App() {
         document.body.className = `${theme}-theme`;
     }, [theme]);
 
-    // useEffect(() => {
-    //     // Simulating a streak increment for demonstration
-    //     const timer = setTimeout(() => {
-    //         setStreak(streak + 1);
-    //     }, 2000);
-    //
-    //     return () => clearTimeout(timer);
-    // }, [streak]);
-
     const searchChangeHandler = async (enteredData) => {
         const [latitude, longitude] = enteredData.value.split(' ');
 
@@ -152,25 +143,28 @@ function App() {
     if (todayWeather && comparisonWeather) {
         appContent = (
             <React.Fragment>
-                <Grid item xs={12} md={6}>
-                    <TodayWeather data={todayWeather} forecastList={todayForecast} />
-                    <WeeklyForecast data={weekForecast} />
+                <Grid container spacing={2}>
+                    <Grid item xs={12} md={6}>
+                        <TodayWeather data={todayWeather} forecastList={todayForecast} />
+                        <WeeklyForecast data={weekForecast} />
+                    </Grid>
+                    <Grid item xs={12} md={6}>
+                        <TodayWeather data={comparisonWeather} forecastList={comparisonTodayForecast} />
+                        <WeeklyForecast data={comparisonWeekForecast} />
+                    </Grid>
                 </Grid>
-                <Grid item xs={12} md={6}>
-                    <TodayWeather data={comparisonWeather} forecastList={comparisonTodayForecast} />
-                    <WeeklyForecast data={comparisonWeekForecast} />
-                </Grid>
-                <Comparison todayWeather={todayWeather} comparisonWeather={comparisonWeather} />
             </React.Fragment>
         );
     } else if (todayWeather && todayForecast && weekForecast) {
         appContent = (
             <React.Fragment>
-                <Grid item xs={12} md={6}>
-                    <TodayWeather data={todayWeather} forecastList={todayForecast} />
-                </Grid>
-                <Grid item xs={12} md={6}>
-                    <WeeklyForecast data={weekForecast} />
+                <Grid container spacing={2}>
+                    <Grid item xs={12} md={6}>
+                        <TodayWeather data={todayWeather} forecastList={todayForecast} />
+                    </Grid>
+                    <Grid item xs={12} md={6}>
+                        <WeeklyForecast data={weekForecast} />
+                    </Grid>
                 </Grid>
             </React.Fragment>
         );
@@ -258,9 +252,11 @@ function App() {
                         sx={{
                             width: '100%',
                             marginBottom: '1rem',
+                            flexDirection: { xs: 'column', md: 'row' }
                         }}
                     >
                         <Search onSearchChange={searchChangeHandler} sx={{ width: '45%' }} />
+                        <Comparison todayWeather={todayWeather} comparisonWeather={comparisonWeather} />
                         <Search onSearchChange={comparisonSearchChangeHandler} sx={{ width: '45%' }} />
                     </Box>
                 </Grid>
